@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Info Viewer - zmniejszający się tekst</title>
+<title>dzieki za ip</title>
 <style>
   html, body {
     margin: 0; padding: 0; height: 100%;
@@ -85,15 +85,9 @@ async function addLine(text, delayMs = 900) {
 
   await delay(delayMs);
 
-if (currentFontSize > minFontSize) {
+ (currentFontSize > minFontSize) {
   currentFontSize = Math.max(minFontSize, currentFontSize - fontSizeStep);
   container.style.fontSize = currentFontSize + 'px';
-} else {
-  // scrollujemy do dołu po dodaniu nowej linii
-  window.scrollTo({
-    top: document.body.scrollHeight,
-    behavior: 'smooth'
-  });
 }
 
 
