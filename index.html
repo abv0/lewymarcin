@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>dzieki za ip</title>
+<title>dzieki za ip frajerze</title>
 <style>
   html, body {
     margin: 0; padding: 0; height: 100%;
     background-color: black;
     color: #0f0;
     font-family: monospace;
-    overflow: auto; /* blokujemy scroll */
+    overflow: hidden; /* blokujemy scroll */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,11 +85,10 @@ async function addLine(text, delayMs = 900) {
 
   await delay(delayMs);
 
- (currentFontSize > minFontSize) {
-  currentFontSize = Math.max(minFontSize, currentFontSize - fontSizeStep);
-  container.style.fontSize = currentFontSize + 'px';
-}
-
+    // zmniejszamy font-size całego kontenera, ale nie mniej niż minFontSize
+    currentFontSize = Math.max(minFontSize, currentFontSize - fontSizeStep);
+    container.style.fontSize = currentFontSize + 'px';
+  }
 
   async function showInfo() {
   await addLine("=== NETWORK & LOCATION ===");
