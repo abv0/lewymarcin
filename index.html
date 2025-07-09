@@ -10,7 +10,7 @@
     background-color: black;
     color: #0f0;
     font-family: monospace;
-    overflow: hidden; /* blokujemy scroll */
+    overflow: auto; /* blokujemy scroll */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -85,10 +85,17 @@ async function addLine(text, delayMs = 900) {
 
   await delay(delayMs);
 
-    // zmniejszamy font-size całego kontenera, ale nie mniej niż minFontSize
-    currentFontSize = Math.max(minFontSize, currentFontSize - fontSizeStep);
-    container.style.fontSize = currentFontSize + 'px';
-  }
+if (currentFontSize > minFontSize) {
+  currentFontSize = Math.max(minFontSize, currentFontSize - fontSizeStep);
+  container.style.fontSize = currentFontSize + 'px';
+} else {
+  // scrollujemy do dołu po dodaniu nowej linii
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior: 'smooth'
+  });
+}
+
 
   async function showInfo() {
   await addLine("=== NETWORK & LOCATION ===");
